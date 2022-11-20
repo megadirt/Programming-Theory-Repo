@@ -6,7 +6,8 @@ public class Player : Animal
 {
 
   
-    public int maxFood = 10;
+    public int keys = 0;
+    private Exit exit;
    
     
     
@@ -15,18 +16,16 @@ public class Player : Animal
     {
         speed = 5;
         Health = 5;
+        exit = GameObject.Find("Exit").GetComponent<Exit>();
 
 }
 
     // Update is called once per frame
     void Update()
     {
-        
 
-        if(Enemy.enemyCount == 0)
-        {
-            Debug.Log("Safe. For now");
-        }
+
+        CheckKeysInLevel();
 
         
     }
@@ -36,19 +35,21 @@ public class Player : Animal
         Health = Health - enemyDamage;
     }
 
-    public void EatCheese()
+    public void AddKeys(int intA)
     {
-        Health = HealthCount.AddHealth(health, 2);
-        if(Health >= maxFood)
-        {
-            
-            isFull();
-        }
+        keys += intA;
     }
 
-    public void isFull()
+   public void CheckKeysInLevel()
     {
-        Debug.Log(HealthCount.AddHealth("butts", "are lovely"));
-        Health = 10;
+        if(GameObject.FindGameObjectsWithTag("Key").Length == 0)
+        {
+            exit.openExit();
+        }
+        else
+        {
+            int keyCount = GameObject.FindGameObjectsWithTag("Key").Length;
+            Debug.Log(keyCount);
+        }
     }
 }
