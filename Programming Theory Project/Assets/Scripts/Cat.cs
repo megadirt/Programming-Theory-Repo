@@ -10,7 +10,7 @@ public class Cat : Enemy //Inheritance
     public Cat()
     {
         Health = 5;
-        speed = 5;
+        speed = 1;
         damage = 1;
     }
 

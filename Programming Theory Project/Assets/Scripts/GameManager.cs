@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Manager { get; private set; }
+    public bool isGameOver;
+    
 
-    private int currentScore;
-    public int CurrentScore //Encapsulation
+  
+
+    public void GameOver()
     {
-        get { return currentScore; }
-        set
-        {
-            if (value >=0)
-            {
-                currentScore = value;
-            }
-        }
+        isGameOver = true;
     }
 }
 

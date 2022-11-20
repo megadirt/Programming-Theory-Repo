@@ -10,11 +10,13 @@ public abstract class Enemy : Animal // Inheritance
     public int damage;
      public Transform player;
     public Player playerScript;
+    private GameManager gameManager;
 
 
     public void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         playerScript = player.gameObject.GetComponent<Player>();
     }
 
@@ -42,7 +44,10 @@ public abstract class Enemy : Animal // Inheritance
 
     public void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        if (!gameManager.isGameOver)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        }
     }
 
 }

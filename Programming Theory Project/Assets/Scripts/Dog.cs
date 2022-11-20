@@ -7,7 +7,7 @@ public class Dog : Enemy
    public Dog()
     {
         Health = 9;
-        speed = 7;
+        speed = 2;
         damage = 4;
     }
 

@@ -25,6 +25,7 @@ public class Exit : MonoBehaviour
         if(other.gameObject.tag == "Player" && isOpen)
         {
             Debug.Log("You win bitch");
+            Destroy(other);
         }
         else if(other.gameObject.tag == "Player" && !isOpen)
         {

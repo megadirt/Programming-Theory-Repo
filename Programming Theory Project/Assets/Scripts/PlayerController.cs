@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     Player playerID;
     Rigidbody rb;
     public float speed;
+    private GameManager gameManager;
    
     Vector3 movement;
     // Start is called before the first frame update
@@ -15,7 +16,8 @@ public class PlayerController : MonoBehaviour
         playerID = gameObject.GetComponent<Player>();
         rb = GetComponent<Rigidbody>();
         speed = playerID.speed;
-        
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+
     }
 
     // Update is called once per frame
@@ -31,6 +33,9 @@ public class PlayerController : MonoBehaviour
 
     void moveCharacter(Vector3 direction)
     {
-        rb.velocity = direction * speed;
+        if (!gameManager.isGameOver)
+        {
+            rb.velocity = direction * speed;
+        }
     }
 }

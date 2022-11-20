@@ -8,6 +8,7 @@ public class Player : Animal
   
     public int keys = 0;
     private Exit exit;
+    private GameManager gameManager;
    
     
     
@@ -17,8 +18,9 @@ public class Player : Animal
         speed = 5;
         Health = 5;
         exit = GameObject.Find("Exit").GetComponent<Exit>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
-}
+    }
 
     // Update is called once per frame
     void Update()
@@ -33,6 +35,10 @@ public class Player : Animal
     public void TakeDamage(int enemyDamage)
     {
         Health = Health - enemyDamage;
+        if(Health == 0)
+        {
+            gameManager.GameOver();
+        }
     }
 
     public void AddKeys(int intA)

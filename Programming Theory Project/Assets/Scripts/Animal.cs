@@ -6,28 +6,23 @@ public class Animal : MonoBehaviour
 {
     public int health;
     public int Health
+
     {
-        get { return health; }
+        get { return health; } //Encapsulation
         set
         {
             if (value >= 0)
             {
                 health = value;
             }
+
+            if(value < 0)
+            {
+                health = 0;
+            }
         }
     }
     public float speed;
     
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }
