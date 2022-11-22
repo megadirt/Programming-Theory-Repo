@@ -14,7 +14,7 @@ public class Cat : Enemy //Inheritance
         damage = 1;
     }
 
-    public override void Attack()  //Polymorphism
+    public override void Attack()  //POLYMORPHISM
     {
         Debug.Log("Cat attacks player");
         player.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 10, ForceMode.Impulse);

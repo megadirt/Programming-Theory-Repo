@@ -8,7 +8,7 @@ public class Animal : MonoBehaviour
     public int Health
 
     {
-        get { return health; } //Encapsulation
+        get { return health; } //ENCAPSULATION
         set
         {
             if (value >= 0)

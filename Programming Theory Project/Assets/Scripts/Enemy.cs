@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class Enemy : Animal // Inheritance
+public abstract class Enemy : Animal // INHERITANCE
 {
     public static int enemyCount = 0;
     // protected Player player;
@@ -29,7 +29,7 @@ public abstract class Enemy : Animal // Inheritance
         
     }
 
-    public abstract void Attack();
+    public abstract void Attack(); //ABSTRACTION
 
     private void OnCollisionEnter(Collision collision)
     {

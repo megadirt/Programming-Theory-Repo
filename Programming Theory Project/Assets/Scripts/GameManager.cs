@@ -1,27 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
     public bool isGameOver;
+    public string playerName;
+    public TextMeshProUGUI PlayerDisplay;
     
 
-  
+    public void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(instance);
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
 
     public void GameOver()
     {
         isGameOver = true;
     }
+
+    public void Update()
+    {
+        playerName = PlayerDisplay.text;
+    }
 }
 
 
 
-/// REPLACE PRIMITIVE SHAPES WITH ASSETS
-/// ADD MUSIC AND SOUND EFFECTS AND PARTICLE EFFECTS
-/// ADD MENU SCREEN UI WITH CHOICE BETWEEN MOUSE (FASTER) OR RAT (MORE HEALTH, LESS KNOCKBACK)
-/// ADD UI FOR FASTEST TIME(HIGH SCORE), AND TIMER(SCORE)
-/// ADD "ENTER INITIALS" PLAYER INPUT AT GAME OVER
-/// ADD TIMER
-/// ADD GAME OVER AND RESTART BUTTON
 
